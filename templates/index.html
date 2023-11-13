@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Welcome to the Flask App</h1>
+        
+        <!-- Form for addition and subtraction -->
+        <form action="/calculate" method="post" class="mt-4">
+            <h2>Addition and Subtraction</h2>
+            <div class="form-group">
+                <label for="num1">Number 1:</label>
+                <input type="number" id="num1" name="num1" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="num2">Number 2:</label>
+                <input type="number" id="num2" name="num2" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="operation">Operation:</label>
+                <select id="operation" name="operation" class="form-control">
+                    <option value="add">Add</option>
+                    <option value="subtract">Subtract</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Calculate</button>
+        </form>
+
+        <p>Result: {{ result_calculate }}</p>
+
+        <!-- Form for sum of digits -->
+        <form action="/calculate_comp" method="post" class="mt-4">
+            <h2>Calculate Sum of Digits</h2>
+            <div class="form-group">
+                <label for="num_to_sum">Enter a number (at least 2 digits):</label>
+                <input type="number" id="num_to_sum" name="num_to_sum" min="10" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Calculate Sum of Digits</button>
+        </form>
+
+        <p>Result: {{ result_sum_of_digits }}</p>
+
+        <!-- Form for checking palindrome -->
+        <form action="/check_palindrome" method="post" class="mt-4">
+            <h2>Check Palindrome</h2>
+            <div class="form-group">
+                <label for="num_to_check">Enter a number:</label>
+                <input type="number" id="num_to_check" name="num_to_check" min="0" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Check Palindrome</button>
+        </form>
+
+        <p>Result: {{ result_palindrome }}</p>
+
+        <form action="/combine_names" method="post" class="mt-4">
+            <h2>Combine First and Last Names</h2>
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Name</button>
+        </form>
+        
+        <p>Full Name: {{ result_combine_names }}</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
