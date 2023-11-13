@@ -7,7 +7,7 @@ app = Flask(__name__)
 result_calculate = None
 result_sum_of_digits = None
 result_palindrome = None
-result_combine_names = None  # Initialize result_combine_names
+result_combine_names = None
 calculate_used = False
 
 @app.route('/')
@@ -64,7 +64,7 @@ def calculate_comp():
 def check_palindrome():
     global result_palindrome, calculate_used
     if calculate_used == False:
-        result_palindrome = "Must use the calculator at least once to check for palindromes."  # Redirect to the index page if calculate hasn't been used
+        result_palindrome = "Must use the calculator at least once to check for palindromes."
         return redirect(url_for('index'))
 
     num_to_check = request.form.get('num_to_check')
@@ -88,11 +88,11 @@ def check_palindrome():
 @app.route('/combine_names', methods=['POST'])
 def combine_names():
     global result_combine_names
-    first_name = request.form.getlist('first_name')  # Get a list of first names
-    last_name = request.form.getlist('last_name')    # Get a list of last names
+    first_name = request.form.getlist('first_name')
+    last_name = request.form.getlist('last_name')
 
     if first_name and last_name:
-        combined_names = zip_names(first_name, last_name)  # Use the zip_names function
+        combined_names = zip_names(first_name, last_name)
         result_combine_names = f"{', '.join(combined_names)}"
     else:
         result_combine_names = "Please enter both first names and last names."
